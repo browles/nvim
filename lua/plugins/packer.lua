@@ -1,56 +1,58 @@
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
+  use("wbthomason/packer.nvim")
 
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.4",
-		-- or                            , branch = "0.1.x",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+  use({
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.4",
+    -- or                            , branch = "0.1.x",
+    requires = { { "nvim-lua/plenary.nvim" } },
+  })
 
-	use("tanvirtin/monokai.nvim")
+  use("tanvirtin/monokai.nvim")
 
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  })
 
-	use("ThePrimeagen/harpoon")
+  use("ThePrimeagen/harpoon")
 
-	use("mbbill/undotree")
+  use("mbbill/undotree")
 
-	use("itchyny/lightline.vim")
+  use("itchyny/lightline.vim")
 
-	use("tpope/vim-fugitive")
+  use("tpope/vim-fugitive")
 
-	use({
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v3.x",
-		requires = {
-			{ "williamboman/mason.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
+  use("airblade/vim-gitgutter")
 
-			-- LSP Support
-			{ "neovim/nvim-lspconfig" },
-			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "L3MON4D3/LuaSnip" },
-		},
-	})
+  use({
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v3.x",
+    requires = {
+      { "williamboman/mason.nvim" },
+      { "williamboman/mason-lspconfig.nvim" },
 
-	use("mfussenegger/nvim-lint")
+      -- LSP Support
+      { "neovim/nvim-lspconfig" },
+      -- Autocompletion
+      { "hrsh7th/nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "L3MON4D3/LuaSnip" },
+    },
+  })
 
-	use("mhartington/formatter.nvim")
+  use("mfussenegger/nvim-lint")
 
-	use("folke/neodev.nvim")
+  use("mhartington/formatter.nvim")
 
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	})
+  use("folke/neodev.nvim")
+
+  use({
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup({})
+    end,
+  })
 end)

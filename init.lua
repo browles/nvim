@@ -1,5 +1,5 @@
-require("neodev").setup({})
 require("plugins.packer")
+require("neodev").setup({})
 require("plugins.lsp")
 require("plugins.treesitter")
 require("plugins.formatter")
@@ -44,13 +44,13 @@ local options = {
   number = true,
   relativenumber = false,
 
-  smartindent = true,
+  formatoptions = "croql",
+  expandtab = true,
   smarttab = true,
+  smartindent = true,
   tabstop = 2,
   softtabstop = 2,
   shiftwidth = 2,
-  expandtab = true,
-  formatoptions = "croql",
 }
 
 for k, v in pairs(options) do
