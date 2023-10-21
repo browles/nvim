@@ -1,5 +1,6 @@
 vim.cmd([[packadd packer.nvim]])
 
+local home = vim.fn.expand("$HOME")
 return require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
 
@@ -57,4 +58,18 @@ return require("packer").startup(function(use)
       require("nvim-autopairs").setup({})
     end,
   })
+
+  -- use({
+  --   "jackMort/ChatGPT.nvim",
+  --   config = function()
+  --     require("chatgpt").setup({
+  --       api_key_cmd = "cat " .. home .. "/.openai_key"
+  --     })
+  --   end,
+  --   requires = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim"
+  --   }
+  -- })
 end)
