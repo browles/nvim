@@ -33,3 +33,6 @@ lspconfig.lua_ls.setup({
     },
   },
 })
+lspconfig.bashls.setup({
+  filetypes = { "sh", "zsh" }
+})

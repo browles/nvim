@@ -23,6 +23,8 @@ local binds = {
 
   { "n", "<leader>u", vim.cmd.UndotreeToggle },
 
+  { "n", "<leader>g", vim.cmd.Git },
+
   { "c", "<C-a>",     "<Home>" },
   { "c", "<C-e>",     "<End>" },
   { "c", "<C-b>",     "<Left>" },
@@ -36,6 +38,11 @@ local binds = {
   { "n", "p",         "]p" },
   { "n", "<C-p>",     "p" },
   { "n", "<C-n>",     "" },
+
+  { "n", "n",         "nzz" },
+  { "n", "N",         "Nzz" },
+  { "n", "<C-u>",     "<C-u>zz" },
+  { "n", "<C-d>",     "<C-d>zz" },
 }
 
 for _, bind in pairs(binds) do

@@ -1,4 +1,4 @@
-require("plugins.packer")
+require("plugins")
 require("neodev").setup({})
 require("plugins.lsp")
 require("plugins.treesitter")
@@ -42,7 +42,7 @@ local options = {
   mouse = "a",
   signcolumn = "yes",
   number = true,
-  relativenumber = false,
+  relativenumber = true,
 
   formatoptions = "croql",
   expandtab = true,
@@ -66,3 +66,6 @@ vim.g.lightline = {
     gitbranch = "FugitiveHead",
   },
 }
+
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 1

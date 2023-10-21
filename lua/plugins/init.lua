@@ -25,6 +25,8 @@ return require("packer").startup(function(use)
 
   use("tpope/vim-fugitive")
 
+  use("tpope/vim-commentary")
+
   use("airblade/vim-gitgutter")
 
   use({
