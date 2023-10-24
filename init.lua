@@ -1,9 +1,11 @@
 require("plugins")
 require("neodev").setup({})
 require("plugins.lsp")
+require("plugins.cmp")
 require("plugins.treesitter")
 require("plugins.formatter")
 require("plugins.lint")
+require("plugins.go")
 require("keybinds")
 require("monokai").setup({ palette = require("monokai").classic })
 

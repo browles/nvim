@@ -36,3 +36,14 @@ lspconfig.lua_ls.setup({
 lspconfig.bashls.setup({
   filetypes = { "sh", "zsh" }
 })
+lspconfig.gopls.setup({
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
+})

@@ -72,4 +72,8 @@ return require("packer").startup(function(use)
   --     "nvim-telescope/telescope.nvim"
   --   }
   -- })
+
+  use "ray-x/go.nvim"
+
+  use 'mfussenegger/nvim-dap'
 end)
