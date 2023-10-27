@@ -51,6 +51,9 @@ local binds = {
   { "n", "N",          "Nzz" },
   { "n", "<C-u>",      "<C-u>zz" },
   { "n", "<C-d>",      "<C-d>zz" },
+
+  { "n", "<F9>",       ":Inspect<CR>" },
+
 }
 
 for _, bind in pairs(binds) do

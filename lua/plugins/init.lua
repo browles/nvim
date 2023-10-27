@@ -46,9 +46,9 @@ return require("packer").startup(function(use)
     },
   })
 
-  use("mfussenegger/nvim-lint")
+  -- use("mfussenegger/nvim-lint")
 
-  use("mhartington/formatter.nvim")
+  -- use("mhartington/formatter.nvim")
 
   use("folke/neodev.nvim")
 
