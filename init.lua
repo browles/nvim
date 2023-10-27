@@ -3,6 +3,8 @@ require("neodev").setup({})
 require("plugins.lsp")
 require("plugins.cmp")
 require("plugins.treesitter")
+require("plugins.telescope")
+require("plugins.devicons")
 require("plugins.formatter")
 require("plugins.lint")
 require("plugins.go")
@@ -69,5 +71,6 @@ vim.g.lightline = {
   },
 }
 
-vim.g.netrw_banner = 0
+vim.g.netrw_banner = 1
 vim.g.netrw_liststyle = 1
+vim.g.netrw_sort_by = "exten"

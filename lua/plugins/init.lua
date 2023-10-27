@@ -75,5 +75,13 @@ return require("packer").startup(function(use)
 
   use "ray-x/go.nvim"
 
-  use 'mfussenegger/nvim-dap'
+  use "ray-x/guihua.lua"
+
+  use "mfussenegger/nvim-dap"
+
+  use "theHamsta/nvim-dap-virtual-text"
+
+  use "rcarriga/nvim-dap-ui"
+
+  use 'nvim-tree/nvim-web-devicons'
 end)
