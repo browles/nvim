@@ -18,6 +18,8 @@ local binds = {
   { "n", "<leader>u",  vim.cmd.UndotreeToggle },
 
   { "n", "<leader>gg", vim.cmd.Git },
+  { "n", "<leader>gp", ":Git push" },
+  { "n", "<leader>gl", ":Git pull" },
   { "n", "<leader>gc", telescope.git_commits },
   { "n", "<leader>gb", telescope.git_branches },
   { "n", "<leader>gs", telescope.git_stash },
@@ -32,6 +34,7 @@ local binds = {
   { "n", "<leader>vj", telescope.jumplist },
   { "n", "<leader>vo", telescope.vim_options },
   { "n", "<leader>vp", telescope.registers },
+  { "n", "<leader>vk", telescope.keymaps },
 
   { "n", "<leader>fs", ":w<CR>" },
   { "n", "<leader>fr", function()
@@ -59,11 +62,20 @@ local binds = {
   { "n",          "<leader>wj", "<C-w>j" },
   { "n",          "<leader>wk", "<C-w>k" },
   { "n",          "<leader>wl", "<C-w>l" },
-  { "n",          "<leader>wl", "<C-w>l" },
+  { "n",          "<leader>ww", "<C-w>v" },
   { "n",          "<leader>wv", "<C-w>v" },
   { "n",          "<leader>ws", "<C-w>s" },
+  { "n",          "<leader>wo", "<C-w>o" },
 
+  { "n",          "<leader>bb", ":enew<CR>" },
   { "n",          "<leader>bd", ":bdelete<CR>" },
+  { "n",          "<leader>bl", ":buffers<CR>" },
+  { "n",          "gb",         ":bnext<CR>" },
+  { "n",          "gB",         ":bprev<CR>" },
+
+  { "n",          "<leader>tt", ":tabnew<CR>" },
+  { "n",          "<leader>td", ":tabclose<CR>" },
+  { "n",          "<leader>to", ":tabonly<CR>" },
 
   { "c",          "<C-a>",      "<Home>" },
   { "c",          "<C-e>",      "<End>" },
@@ -75,15 +87,19 @@ local binds = {
   { { "n", "v" }, "p",          "]p" },
   { { "n", "v" }, "<C-p>",      "\"0]p" },
   { "n",          "<C-n>",      "" },
-  { "n",          "<leader>/",  ":nohlsearch<CR>" },
-  { "t",          "<Esc>",      "<C-\\><C-n>" },
-
+  { "n",          "<C-/>",      ":nohlsearch<CR>" },
+  { "n",          "[q",         ":cprevious<CR>" },
+  { "n",          "]q",         ":cnext<CR>" },
+  { "n",          "]l",         ":lnext<CR>" },
+  { "n",          "[l",         ":lprevious<CR>" },
   { "n",          "n",          "nzz" },
   { "n",          "N",          "Nzz" },
   { "n",          "<C-u>",      "<C-u>zz" },
   { "n",          "<C-d>",      "<C-d>zz" },
+  { "t",          "<Esc>",      "<C-\\><C-n>" },
 
   { "n",          "<F9>",       ":Inspect<CR>" },
+  { "n",          "<F10>",      ":InspectTree<CR>" },
 }
 
 for _, bind in pairs(binds) do
