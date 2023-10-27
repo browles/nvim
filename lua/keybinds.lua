@@ -18,6 +18,8 @@ local binds = {
   { "n", "<leader>u",  vim.cmd.UndotreeToggle },
 
   { "n", "<leader>gg", vim.cmd.Git },
+  { "n", "<leader>ga", ":Git blame<CR>" },
+  { "n", "<leader>gd", ":Git diff<CR>" },
   { "n", "<leader>gp", ":Git push" },
   { "n", "<leader>gl", ":Git pull" },
   { "n", "<leader>gc", telescope.git_commits },
@@ -62,14 +64,16 @@ local binds = {
   { "n",          "<leader>wj", "<C-w>j" },
   { "n",          "<leader>wk", "<C-w>k" },
   { "n",          "<leader>wl", "<C-w>l" },
-  { "n",          "<leader>ww", "<C-w>v" },
-  { "n",          "<leader>wv", "<C-w>v" },
-  { "n",          "<leader>ws", "<C-w>s" },
-  { "n",          "<leader>wo", "<C-w>o" },
+  { "n",          "<leader>ww", ":vsplit<CR>" },
+  { "n",          "<leader>wv", ":vsplit<CR>" },
+  { "n",          "<leader>ws", ":split<CR>" },
+  { "n",          "<leader>wd", ":close<CR>" },
+  { "n",          "<leader>wo", ":only<CR>" },
 
   { "n",          "<leader>bb", ":enew<CR>" },
-  { "n",          "<leader>bd", ":bdelete<CR>" },
   { "n",          "<leader>bl", ":buffers<CR>" },
+  { "n",          "<leader>bd", ":bdelete<CR>" },
+
   { "n",          "gb",         ":bnext<CR>" },
   { "n",          "gB",         ":bprev<CR>" },
 
@@ -102,6 +106,6 @@ local binds = {
   { "n",          "<F10>",      ":InspectTree<CR>" },
 }
 
-for _, bind in pairs(binds) do
+for _, bind in ipairs(binds) do
   vim.keymap.set(bind[1], bind[2], bind[3])
 end
