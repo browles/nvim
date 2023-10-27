@@ -26,7 +26,15 @@ return require("packer").startup(function(use)
 
   use("tpope/vim-fugitive")
 
+  use("tpope/vim-rhubarb")
+
   use("tpope/vim-commentary")
+
+  use("tpope/vim-surround")
+
+  use("tpope/vim-repeat")
+
+  use("tpope/vim-eunuch")
 
   use("airblade/vim-gitgutter")
 

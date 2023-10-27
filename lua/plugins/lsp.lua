@@ -10,13 +10,23 @@ end)
 require("mason").setup({})
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "bashls",
+    -- Misc
+    "html",
     "cssls",
-    "tsserver",
+    "sqlls",
+    -- Configs
+    "jsonls",
+    "taplo",
+    "yamlls",
+    "dockerls",
+    -- Languages
+    "bashls",
+    "clangd",
     "eslint",
-    "pylsp",
     "gopls",
     "lua_ls",
+    "pylsp",
+    "tsserver",
   },
   handlers = {
     lsp.default_setup,
