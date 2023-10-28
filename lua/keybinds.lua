@@ -2,6 +2,20 @@ local telescope = require("telescope.builtin")
 local harpoon = require("harpoon.mark")
 local harpoon_ui = require("harpoon.ui")
 
+function autojump(cdFn)
+  return function()
+    vim.ui.input({ prompt = "Autojump: " }, function(input)
+      if input == nil then
+        return
+      end
+      local dir = vim.fn.system("autojump " .. input)
+      if dir ~= '.' then
+        vim.cmd(cdFn .. " " .. dir)
+      end
+    end)
+  end
+end
+
 vim.g.mapleader = " "
 local binds = {
   { "n", "<leader>pe", vim.cmd.Ex },
@@ -9,6 +23,9 @@ local binds = {
   { "n", "<leader>pf", telescope.find_files },
   { "n", "<leader>pi", telescope.git_files },
   { "n", "<leader>pg", telescope.live_grep },
+  { "n", "<leader>pw", vim.cmd.pwd },
+  { "n", "<leader>pc", ":cd " },
+  { "n", "<leader>pj", autojump("cd") },
 
   { "n", "<leader>m",  harpoon.add_file },
   { "n", "<C-h>",      harpoon_ui.toggle_quick_menu },
@@ -40,16 +57,12 @@ local binds = {
 
   { "n", "<leader>fs", ":w<CR>" },
   { "n", "<leader>fr", function()
-    vim.ui.input({ prompt = "Rename: " }, function(rename)
-      if rename ~= nil then
-        rename = rename:match("^%s*(.-)%s*$")
-        if rename ~= "" then
-          vim.cmd("Rename " .. rename)
-        end
+    vim.ui.input({ prompt = "Rename: " }, function(input)
+      if input ~= nil then
+        vim.cmd("Rename " .. input)
       end
     end)
-  end
-  },
+  end },
   { "n", "<leader>fd", function()
     local name = vim.fn.expand("%")
     vim.ui.input({ prompt = "Delete " .. name .. " ?" }, function(input)
@@ -57,29 +70,33 @@ local binds = {
         vim.cmd("Delete")
       end
     end)
-  end
-  },
+  end },
 
   { "n",          "<leader>wh", "<C-w>h" },
   { "n",          "<leader>wj", "<C-w>j" },
   { "n",          "<leader>wk", "<C-w>k" },
   { "n",          "<leader>wl", "<C-w>l" },
+  { "n",          "<leader>wr", "<C-w>r" },
+  { "n",          "<leader>wR", "<C-w>R" },
   { "n",          "<leader>ww", ":vsplit<CR>" },
   { "n",          "<leader>wv", ":vsplit<CR>" },
   { "n",          "<leader>ws", ":split<CR>" },
   { "n",          "<leader>wd", ":close<CR>" },
   { "n",          "<leader>wo", ":only<CR>" },
+  { "n",          "<leader>wc", ":lcd " },
+  { "n",          "<leader>wj", autojump("lcd") },
 
   { "n",          "<leader>bb", ":enew<CR>" },
   { "n",          "<leader>bl", ":buffers<CR>" },
   { "n",          "<leader>bd", ":bdelete<CR>" },
-
   { "n",          "gb",         ":bnext<CR>" },
   { "n",          "gB",         ":bprev<CR>" },
 
   { "n",          "<leader>tt", ":tabnew<CR>" },
   { "n",          "<leader>td", ":tabclose<CR>" },
   { "n",          "<leader>to", ":tabonly<CR>" },
+  { "n",          "<leader>tc", ":tcd " },
+  { "n",          "<leader>tj", autojump("tcd") },
 
   { "c",          "<C-a>",      "<Home>" },
   { "c",          "<C-e>",      "<End>" },
