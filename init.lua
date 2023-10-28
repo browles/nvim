@@ -44,7 +44,7 @@ local options = {
   number = true,
   relativenumber = true,
 
-  formatoptions = "croql",
+  formatoptions = "jcoql",
   expandtab = true,
   smarttab = true,
   smartindent = true,
