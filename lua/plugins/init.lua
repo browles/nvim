@@ -1,6 +1,6 @@
 vim.cmd([[packadd packer.nvim]])
 
-local home = vim.fn.expand("$HOME")
+-- local home = vim.fn.expand("$HOME")
 return require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
 
@@ -22,7 +22,10 @@ return require("packer").startup(function(use)
 
   use("mbbill/undotree")
 
-  use("itchyny/lightline.vim")
+  use({
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  })
 
   use("tpope/vim-fugitive")
 
@@ -36,7 +39,7 @@ return require("packer").startup(function(use)
 
   use("tpope/vim-eunuch")
 
-  use("airblade/vim-gitgutter")
+  use("lewis6991/gitsigns.nvim")
 
   use({
     "VonHeikemen/lsp-zero.nvim",
@@ -81,17 +84,19 @@ return require("packer").startup(function(use)
   --   }
   -- })
 
-  use "ray-x/go.nvim"
+  use("ray-x/go.nvim")
 
-  use "ray-x/guihua.lua"
+  use("ray-x/guihua.lua")
 
-  use "mfussenegger/nvim-dap"
+  use("mfussenegger/nvim-dap")
 
-  use "theHamsta/nvim-dap-virtual-text"
+  use("theHamsta/nvim-dap-virtual-text")
 
-  use "rcarriga/nvim-dap-ui"
+  use("rcarriga/nvim-dap-ui")
 
-  use 'nvim-tree/nvim-web-devicons'
+  use("nvim-tree/nvim-web-devicons")
 
-  use "xiyaowong/transparent.nvim"
+  use("xiyaowong/transparent.nvim")
+
+  use("norcalli/nvim-colorizer.lua")
 end)

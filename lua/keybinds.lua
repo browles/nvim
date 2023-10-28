@@ -127,6 +127,7 @@ local binds = {
       vim.opt.colorcolumn = ""
     end
   end },
+  { "n", "<C-t>", ":TransparentToggle<CR>" },
   { "t", "<Esc>", "<C-\\><C-n>" },
 
   { "n", "<F9>",  ":Inspect<CR>" },
