@@ -38,8 +38,8 @@ local options = {
 
   guicursor = "",
   cursorline = true,
-  colorcolumn = "80",
   textwidth = 80,
+  colorcolumn = "",
   wrap = false,
   mouse = "a",
   signcolumn = "yes",

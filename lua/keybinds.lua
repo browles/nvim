@@ -119,10 +119,18 @@ local binds = {
   { "n",          "N",          "Nzz" },
   { "n",          "<C-u>",      "<C-u>zz" },
   { "n",          "<C-d>",      "<C-d>zz" },
-  { "t",          "<Esc>",      "<C-\\><C-n>" },
+  { "n", "<C-c>", function()
+    local cc = vim.api.nvim_get_option_value("colorcolumn", {})
+    if cc == "" then
+      vim.opt.colorcolumn = "+0"
+    else
+      vim.opt.colorcolumn = ""
+    end
+  end },
+  { "t", "<Esc>", "<C-\\><C-n>" },
 
-  { "n",          "<F9>",       ":Inspect<CR>" },
-  { "n",          "<F10>",      ":InspectTree<CR>" },
+  { "n", "<F9>",  ":Inspect<CR>" },
+  { "n", "<F10>", ":InspectTree<CR>" },
 }
 
 for _, bind in ipairs(binds) do
