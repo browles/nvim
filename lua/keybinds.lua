@@ -2,15 +2,17 @@ local telescope = require("telescope.builtin")
 local harpoon = require("harpoon.mark")
 local harpoon_ui = require("harpoon.ui")
 
-function autojump(cdFn)
+local function autojump(cdFn)
   return function()
     vim.ui.input({ prompt = "Autojump: " }, function(input)
       if input == nil then
         return
       end
       local dir = vim.fn.system("autojump " .. input)
+      dir = dir:gsub("\n", "")
       if dir ~= '.' then
         vim.cmd(cdFn .. " " .. dir)
+        vim.cmd.pwd()
       end
     end)
   end
@@ -37,8 +39,8 @@ local binds = {
   { "n", "<leader>gg", vim.cmd.Git },
   { "n", "<leader>ga", ":Git blame<CR>" },
   { "n", "<leader>gd", ":Git diff<CR>" },
-  { "n", "<leader>gp", ":Git push" },
-  { "n", "<leader>gl", ":Git pull" },
+  { "n", "<leader>gp", ":Git push " },
+  { "n", "<leader>gl", ":Git pull " },
   { "n", "<leader>gc", telescope.git_commits },
   { "n", "<leader>gb", telescope.git_branches },
   { "n", "<leader>gs", telescope.git_stash },
@@ -84,7 +86,7 @@ local binds = {
   { "n",          "<leader>wd", ":close<CR>" },
   { "n",          "<leader>wo", ":only<CR>" },
   { "n",          "<leader>wc", ":lcd " },
-  { "n",          "<leader>wj", autojump("lcd") },
+  { "n",          "<leader>wi", autojump("lcd") },
 
   { "n",          "<leader>bb", ":enew<CR>" },
   { "n",          "<leader>bl", ":buffers<CR>" },
