@@ -8,9 +8,7 @@ require("plugins.devicons")
 require("plugins.go")
 require("keybinds")
 require("monokai").setup({ palette = require("monokai").classic })
-
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+require("transparent")
 
 local options = {
   termguicolors = true,
