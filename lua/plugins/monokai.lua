@@ -33,8 +33,8 @@ end
 local colors = require("monokai-pro.colorscheme").colors
 local lualine_theme = {
   normal = {
-    a = { bg = colors.base.yellow, fg = colors.base.black, gui = "bold" },
-    b = { bg = colors.base.dimmed5, fg = colors.base.yellow },
+    a = { bg = colors.base.green, fg = colors.base.black, gui = "bold" },
+    b = { bg = colors.base.dimmed5, fg = colors.base.green },
     c = {
       bg = colors.statusBar.background,
       fg = colors.statusBar.activeForeground,
@@ -45,12 +45,12 @@ local lualine_theme = {
     },
   },
   insert = {
-    a = { bg = colors.base.green, fg = colors.base.black, gui = "bold" },
-    b = { bg = colors.base.dimmed5, fg = colors.base.green },
-  },
-  command = {
     a = { bg = colors.base.yellow, fg = colors.base.black, gui = "bold" },
     b = { bg = colors.base.dimmed5, fg = colors.base.yellow },
+  },
+  command = {
+    a = { bg = colors.base.green, fg = colors.base.black, gui = "bold" },
+    b = { bg = colors.base.dimmed5, fg = colors.base.green },
   },
   visual = {
     a = { bg = colors.base.magenta, fg = colors.base.black, gui = "bold" },
