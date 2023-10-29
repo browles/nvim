@@ -45,7 +45,7 @@ local binds = {
   { "n", "<leader>gb", telescope.git_branches },
   { "n", "<leader>gs", telescope.git_stash },
 
-  { "n", "<leader>vv", ":vs ~/.config/nvim | lcd ~/.config/nvim<CR>" },
+  { "n", "<leader>vv", ":vs | lcd ~/.config/nvim | e init.lua<CR>" },
   { "n", "<leader>vb", telescope.buffers },
   { "n", "<leader>vf", telescope.oldfiles },
   { "n", "<leader>vc", telescope.commands },

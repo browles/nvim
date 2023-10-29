@@ -1,5 +1,13 @@
 local actions = require("telescope.actions")
 require("telescope").setup {
+  pickers = {
+    find_files = {
+      hidden = true
+    },
+    git_files = {
+      hidden = true
+    },
+  },
   defaults = {
     mappings = {
       i = {

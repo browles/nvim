@@ -56,15 +56,10 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.g.lightline = {
-  colorscheme = "default",
-  active = {
-    left = { { "mode", "paste" }, { "gitbranch", "readonly", "filename", "modified" } },
-  },
-  component_function = {
-    gitbranch = "FugitiveHead",
-  },
-}
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = "*",
+  command = "set formatoptions-=o"
+})
 
 vim.g.netrw_banner = 1
 vim.g.netrw_liststyle = 1
