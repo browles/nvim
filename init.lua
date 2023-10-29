@@ -6,7 +6,6 @@ require("plugins.telescope")
 require("plugins.devicons")
 require("plugins.gitsigns")
 require("plugins.monokai")
-require("plugins.lualine")
 require("plugins.go")
 require("keybinds")
 
@@ -44,7 +43,7 @@ local options = {
   number = true,
   relativenumber = true,
 
-  formatoptions = "jcoql",
+  formatoptions = "jcrql",
   expandtab = true,
   smarttab = true,
   smartindent = true,

@@ -69,7 +69,7 @@ local binds = {
     local name = vim.fn.expand("%")
     vim.ui.input({ prompt = "Delete " .. name .. " ?" }, function(input)
       if input ~= nil then
-        vim.cmd("Delete")
+        vim.cmd("Delete!")
       end
     end)
   end },

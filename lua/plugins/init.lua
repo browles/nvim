@@ -11,8 +11,6 @@ return require("packer").startup(function(use)
     requires = { { "nvim-lua/plenary.nvim" } },
   })
 
-  use("tanvirtin/monokai.nvim")
-
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
@@ -96,7 +94,11 @@ return require("packer").startup(function(use)
 
   use("nvim-tree/nvim-web-devicons")
 
+  use("MunifTanjim/nui.nvim")
+
   use("xiyaowong/transparent.nvim")
 
   use("norcalli/nvim-colorizer.lua")
+
+  use("loctvl842/monokai-pro.nvim")
 end)
