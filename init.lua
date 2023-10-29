@@ -9,6 +9,11 @@ require("plugins.monokai")
 require("plugins.go")
 require("keybinds")
 
+-- Disable netrw before loading nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+require("nvim-tree").setup()
+
 local options = {
   termguicolors = true,
   clipboard = "unnamed",
@@ -37,6 +42,7 @@ local options = {
   cursorline = true,
   textwidth = 80,
   colorcolumn = "",
+  list = true,
   wrap = false,
   mouse = "a",
   signcolumn = "yes",
@@ -61,8 +67,15 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   command = "set formatoptions-=o"
 })
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- empty setup using defaults
-require("nvim-tree").setup()
+vim.api.nvim_create_autocmd({ "BufWrite" }, {
+  pattern = "*",
+  callback = function()
+    local view = vim.fn.winsaveview()
+    local endofline = [[%s/\s\+$//]]
+    local endoffile = [[%s/\($\n\s*\)\+\%$//]]
+    for _, pattern in ipairs({ endofline, endoffile }) do
+      vim.cmd("keepjumps keeppatterns silent! " .. pattern)
+    end
+    vim.fn.winrestview(view)
+  end
+})

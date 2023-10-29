@@ -1,6 +1,9 @@
 local telescope = require("telescope.builtin")
 local harpoon = require("harpoon.mark")
 local harpoon_ui = require("harpoon.ui")
+local navigator = require("Navigator")
+
+navigator.setup()
 
 local function autojump(cdFn)
   return function()
@@ -29,10 +32,10 @@ local binds = {
   { "n", "<leader>pc", ":cd " },
   { "n", "<leader>pj", autojump("cd") },
 
-  { "n", "<leader>m",  harpoon.add_file },
-  { "n", "<C-h>",      harpoon_ui.toggle_quick_menu },
-  { "n", "<C-j>",      harpoon_ui.nav_next },
-  { "n", "<C-k>",      harpoon_ui.nav_prev },
+  { "n", "<leader>hh", harpoon.add_file },
+  { "n", "<leader>hl", harpoon_ui.toggle_quick_menu },
+  { "n", "gh",         harpoon_ui.nav_next },
+  { "n", "gH",         harpoon_ui.nav_prev },
 
   { "n", "<leader>u",  vim.cmd.UndotreeToggle },
 
@@ -108,6 +111,12 @@ local binds = {
   { { "c", "i" }, "<C-b>",      "<Left>" },
   { { "c", "i" }, "<C-f>",      "<Right>" },
   { { "c", "i" }, "<C-d>",      "<Delete>" },
+
+  { { "n", "t" }, "<C-h>",      navigator.left },
+  { { "n", "t" }, "<C-l>",      navigator.right },
+  { { "n", "t" }, "<C-k>",      navigator.up },
+  { { "n", "t" }, "<C-j>",      navigator.down },
+  { { "n", "t" }, "<C-\\>",     navigator.previous },
 
   { "n",          "Y",          "y$" },
   { { "n", "v" }, "p",          "]p" },

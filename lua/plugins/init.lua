@@ -103,4 +103,6 @@ return require("packer").startup(function(use)
   use("loctvl842/monokai-pro.nvim")
 
   use("nvim-tree/nvim-tree.lua")
+
+  use("numToStr/Navigator.nvim")
 end)
