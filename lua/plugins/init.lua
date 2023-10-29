@@ -101,4 +101,6 @@ return require("packer").startup(function(use)
   use("norcalli/nvim-colorizer.lua")
 
   use("loctvl842/monokai-pro.nvim")
+
+  use("nvim-tree/nvim-tree.lua")
 end)

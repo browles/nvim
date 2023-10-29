@@ -20,8 +20,8 @@ end
 
 vim.g.mapleader = " "
 local binds = {
-  { "n", "<leader>pe", vim.cmd.Ex },
-  { "n", "<leader>pr", vim.cmd.Rex },
+  { "n", "<leader>pe", ":NvimTreeToggle<CR>" },
+  { "n", "<leader>pr", ":NvimTreeFindFile<CR>" },
   { "n", "<leader>pf", telescope.find_files },
   { "n", "<leader>pi", telescope.git_files },
   { "n", "<leader>pg", telescope.live_grep },

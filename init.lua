@@ -61,6 +61,8 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   command = "set formatoptions-=o"
 })
 
-vim.g.netrw_banner = 1
-vim.g.netrw_liststyle = 1
-vim.g.netrw_sort_by = "exten"
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- empty setup using defaults
+require("nvim-tree").setup()
