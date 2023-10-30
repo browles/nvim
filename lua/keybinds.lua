@@ -21,19 +21,6 @@ end
 
 vim.g.mapleader = " "
 local binds = {
-  { "n", "<leader>pe", ":NvimTreeToggle<CR>" },
-  { "n", "<leader>pf", fzf.files },
-  { "n", "<leader>pi", fzf.git_files },
-  { "n", "<leader>pg", fzf.live_grep },
-  { "n", "<leader>pw", vim.cmd.pwd },
-  { "n", "<leader>pc", ":cd " },
-  { "n", "<leader>pj", autojump("cd") },
-
-  { "n", "<leader>m",  harpoon.add_file },
-  { "n", "<C-h>",      harpoon_ui.toggle_quick_menu },
-  { "n", "<C-j>",      harpoon_ui.nav_next },
-  { "n", "<C-k>",      harpoon_ui.nav_prev },
-
   { "n", "<leader>u",  vim.cmd.UndotreeToggle },
 
   { "n", "<leader>gg", vim.cmd.Git },
@@ -75,6 +62,25 @@ local binds = {
     end)
   end },
 
+  { "n",          "<leader>m",  harpoon.add_file },
+  { "n",          "<leader>h",  harpoon_ui.toggle_quick_menu },
+  { "n",          "<leader>j",  harpoon_ui.nav_next },
+  { "n",          "<leader>k",  harpoon_ui.nav_prev },
+
+  { "n",          "<leader>bb", ":enew<CR>" },
+  { "n",          "<leader>bl", fzf.buffers },
+  { "n",          "<leader>bd", ":bdelete<CR>" },
+  { "n",          "<C-j>",      ":bnext<CR>" },
+  { "n",          "<C-k>",      ":bprev<CR>" },
+
+  { "n",          "<leader>pe", ":NvimTreeToggle<CR>" },
+  { "n",          "<leader>pf", fzf.files },
+  { "n",          "<leader>pi", fzf.git_files },
+  { "n",          "<leader>pg", fzf.live_grep },
+  { "n",          "<leader>pw", vim.cmd.pwd },
+  { "n",          "<leader>pc", ":cd " },
+  { "n",          "<leader>pj", autojump("cd") },
+
   { "n",          "<leader>ww", ":vsplit<CR>" },
   { "n",          "<leader>w/", ":vsplit<CR>" },
   { "n",          "<leader>w-", ":split<CR>" },
@@ -83,15 +89,11 @@ local binds = {
   { "n",          "<leader>wc", ":lcd " },
   { "n",          "<leader>wi", autojump("lcd") },
 
-  { "n",          "<leader>bb", ":enew<CR>" },
-  { "n",          "<leader>bl", fzf.buffers },
-  { "n",          "<leader>bd", ":bdelete<CR>" },
-  { "n",          "gb",         ":bnext<CR>" },
-  { "n",          "gB",         ":bprev<CR>" },
-
   { "n",          "<leader>tt", ":tabnew<CR>" },
   { "n",          "<leader>td", ":tabclose<CR>" },
   { "n",          "<leader>to", ":tabonly<CR>" },
+  { "n",          "<C-h>",      ":tabprevious<CR>" },
+  { "n",          "<C-l>",      ":tabnext<CR>" },
   { "n",          "<leader>tc", ":tcd " },
   { "n",          "<leader>tj", autojump("tcd") },
 
