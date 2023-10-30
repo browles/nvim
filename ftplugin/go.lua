@@ -1,5 +1,5 @@
 local binds = {
-  { "n", "<F5>",       function() vim.cmd("!go run %") end },
+  { "n", "<F5>",       ":!go run %<CR>" },
 
   { "n", "<leader>cr", ":GoGenReturn<CR>" },
   { "n", "<leader>ce", ":GoIfErr<CR>" },

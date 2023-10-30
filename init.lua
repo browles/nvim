@@ -63,11 +63,13 @@ for k, v in pairs(options) do
 end
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  desc = "Remove 'o' from formatoptions.",
   pattern = "*",
   command = "set formatoptions-=o"
 })
 
 vim.api.nvim_create_autocmd({ "BufWrite" }, {
+  desc = "Remove trailing whitespace and newlines.",
   pattern = "*",
   callback = function()
     local view = vim.fn.winsaveview()
@@ -78,4 +80,10 @@ vim.api.nvim_create_autocmd({ "BufWrite" }, {
     end
     vim.fn.winrestview(view)
   end
+})
+
+vim.api.nvim_create_autocmd("VimResized", {
+  desc = "Automatically resize windows when the host window size changes.",
+  pattern = "*",
+  command = "wincmd =",
 })

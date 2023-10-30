@@ -1,1 +1,1 @@
-vim.keymap.set("n", "<F5>", function() vim.cmd("!python %") end)
+vim.keymap.set("n", "<F5>", ":!python %<CR>")
