@@ -1,9 +1,7 @@
-local telescope = require("telescope.builtin")
+local fzf = require("fzf-lua")
 local harpoon = require("harpoon.mark")
 local harpoon_ui = require("harpoon.ui")
 local navigator = require("Navigator")
-
-navigator.setup()
 
 local function autojump(cdFn)
   return function()
@@ -24,10 +22,9 @@ end
 vim.g.mapleader = " "
 local binds = {
   { "n", "<leader>pe", ":NvimTreeToggle<CR>" },
-  { "n", "<leader>pr", ":NvimTreeFindFile<CR>" },
-  { "n", "<leader>pf", telescope.find_files },
-  { "n", "<leader>pi", telescope.git_files },
-  { "n", "<leader>pg", telescope.live_grep },
+  { "n", "<leader>pf", fzf.files },
+  { "n", "<leader>pi", fzf.git_files },
+  { "n", "<leader>pg", fzf.live_grep },
   { "n", "<leader>pw", vim.cmd.pwd },
   { "n", "<leader>pc", ":cd " },
   { "n", "<leader>pj", autojump("cd") },
@@ -44,22 +41,23 @@ local binds = {
   { "n", "<leader>gd", ":Git diff<CR>" },
   { "n", "<leader>gp", ":Git push " },
   { "n", "<leader>gl", ":Git pull " },
-  { "n", "<leader>gc", telescope.git_commits },
-  { "n", "<leader>gb", telescope.git_branches },
-  { "n", "<leader>gs", telescope.git_stash },
+  { "n", "<leader>gc", fzf.git_commits },
+  { "n", "<leader>gb", fzf.git_branches },
+  { "n", "<leader>gs", fzf.git_stash },
 
   { "n", "<leader>vv", ":vs | lcd ~/.config/nvim | e init.lua<CR>" },
-  { "n", "<leader>vb", telescope.buffers },
-  { "n", "<leader>vf", telescope.oldfiles },
-  { "n", "<leader>vc", telescope.commands },
-  { "n", "<leader>vm", telescope.marks },
-  { "n", "<leader>vq", telescope.quickfix },
-  { "n", "<leader>vl", telescope.loclist },
-  { "n", "<leader>vj", telescope.jumplist },
-  { "n", "<leader>vo", telescope.vim_options },
-  { "n", "<leader>vp", telescope.registers },
-  { "n", "<leader>vk", telescope.keymaps },
+  { "n", "<leader>vb", fzf.buffers },
+  { "n", "<leader>vf", fzf.oldfiles },
+  { "n", "<leader>vc", fzf.commands },
+  { "n", "<leader>vm", fzf.marks },
+  { "n", "<leader>vq", fzf.quickfix },
+  { "n", "<leader>vl", fzf.loclist },
+  { "n", "<leader>vj", fzf.jumps },
+  { "n", "<leader>vp", fzf.registers },
+  { "n", "<leader>vk", fzf.keymaps },
 
+  { "n", "<leader>ff", ":NvimTreeFindFile<CR>" },
+  { "n", "<leader>fl", fzf.oldfiles },
   { "n", "<leader>fs", ":w<CR>" },
   { "n", "<leader>fr", function()
     vim.ui.input({ prompt = "Rename: " }, function(input)
@@ -77,6 +75,7 @@ local binds = {
     end)
   end },
 
+  { "n",          "<leader>ww", ":vsplit<CR>" },
   { "n",          "<leader>w/", ":vsplit<CR>" },
   { "n",          "<leader>w-", ":split<CR>" },
   { "n",          "<leader>wd", ":close<CR>" },
@@ -85,7 +84,7 @@ local binds = {
   { "n",          "<leader>wi", autojump("lcd") },
 
   { "n",          "<leader>bb", ":enew<CR>" },
-  { "n",          "<leader>bl", ":buffers<CR>" },
+  { "n",          "<leader>bl", fzf.buffers },
   { "n",          "<leader>bd", ":bdelete<CR>" },
   { "n",          "gb",         ":bnext<CR>" },
   { "n",          "gB",         ":bprev<CR>" },

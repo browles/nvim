@@ -2,7 +2,6 @@ require("plugins")
 require("plugins.lsp")
 require("plugins.cmp")
 require("plugins.treesitter")
-require("plugins.telescope")
 require("plugins.devicons")
 require("plugins.gitsigns")
 require("plugins.monokai")
@@ -43,6 +42,7 @@ local options = {
   textwidth = 80,
   colorcolumn = "",
   list = true,
+  listchars = "tab:. ,trail:.,nbsp:.,eol:$",
   wrap = false,
   mouse = "a",
   signcolumn = "yes",
