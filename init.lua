@@ -1,4 +1,4 @@
-require("plugins")
+require("plugins.packer")
 require("plugins.lsp")
 require("plugins.cmp")
 require("plugins.treesitter")

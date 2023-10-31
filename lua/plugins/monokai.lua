@@ -11,10 +11,6 @@ require("monokai-pro").setup({
 vim.cmd([[colorscheme monokai-pro]])
 -- vim.cmd([[TransparentEnable]])
 
-for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-  vim.api.nvim_set_hl(0, group, {})
-end
-
 -- green #a9dc76
 -- dark #19181a
 -- red #ff6188

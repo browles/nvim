@@ -1,11 +1,12 @@
 require("neodev").setup({})
 local lsp = require("lsp-zero")
 
-lsp.on_attach(function(_, bufnr)
+lsp.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
   lsp.default_keymaps({ buffer = bufnr })
   lsp.buffer_autoformat()
+  client.server_capabilities.semanticTokensProvider = nil
 end)
 
 require("mason").setup({})

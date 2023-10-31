@@ -8,7 +8,6 @@ return require("packer").startup(function(use)
   use("nvim-lua/plenary.nvim")
   use("MunifTanjim/nui.nvim")
   use("nvim-tree/nvim-web-devicons")
-  use("ray-x/guihua.lua")
 
   -- Appearance
   use("xiyaowong/transparent.nvim")
@@ -26,9 +25,16 @@ return require("packer").startup(function(use)
   use("ibhagwan/fzf-lua")
   use("ThePrimeagen/harpoon")
   use("mbbill/undotree")
-
-  -- Git/Editing/Keybinds
+  use({
+    "akinsho/toggleterm.nvim",
+    tag = '*',
+    config = function()
+      require("toggleterm").setup()
+    end
+  })
   use("tpope/vim-fugitive")
+
+  -- Editing/Keybinds
   use("tpope/vim-rhubarb")
   use("tpope/vim-commentary")
   use("tpope/vim-surround")
@@ -49,7 +55,12 @@ return require("packer").startup(function(use)
   })
 
   -- Dev
-  use("ray-x/go.nvim")
+  use({
+    "ray-x/go.nvim",
+    requires = {
+      "ray-x/guihua.lua"
+    }
+  })
   use({
     "mfussenegger/nvim-dap",
     requires = {

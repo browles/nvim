@@ -23,9 +23,10 @@ vim.g.mapleader = " "
 local binds = {
   { "n", "<leader>u",  vim.cmd.UndotreeToggle },
 
-  { "n", "<leader>gg", vim.cmd.Git },
+  { "n", "<leader>gg", ":Git<CR>" },
   { "n", "<leader>ga", ":Git blame<CR>" },
   { "n", "<leader>gd", ":Git diff<CR>" },
+  { "n", "<leader>gD", ":Gvdiffsplit<CR>" },
   { "n", "<leader>gp", ":Git push " },
   { "n", "<leader>gl", ":Git pull " },
   { "n", "<leader>gc", fzf.git_commits },
@@ -98,6 +99,11 @@ local binds = {
   { "n",          "<leader>tc", ":tcd " },
   { "n",          "<leader>tj", autojump("tcd") },
 
+  { "n",          "<leader>rr", ":ToggleTerm<CR>" },
+  { "n",          "<leader>ra", ":ToggleTermToggleAll<CR>" },
+  { "n",          "<leader>re", ":ToggleTermSendCurrentLine<CR>" },
+  { "t",          "<Esc>",      "<C-\\><C-n>" },
+
   { "c",          "<C-a>",      "<Home>" },
   { "c",          "<C-e>",      "<End>" },
   { { "c", "i" }, "<C-b>",      "<Left>" },
@@ -132,7 +138,6 @@ local binds = {
     end
   end },
   { "n", "<C-t>", ":TransparentToggle<CR>" },
-  { "t", "<Esc>", "<C-\\><C-n>" },
 
   { "n", "<F9>",  ":Inspect<CR>" },
   { "n", "<F10>", ":InspectTree<CR>" },
