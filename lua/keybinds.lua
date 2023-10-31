@@ -25,8 +25,11 @@ local binds = {
 
   { "n", "<leader>gg", ":Git<CR>" },
   { "n", "<leader>ga", ":Git blame<CR>" },
-  { "n", "<leader>gd", ":Git diff<CR>" },
-  { "n", "<leader>gD", ":Gvdiffsplit<CR>" },
+  { "n", "<leader>gD", ":Git diff<CR>" },
+  { "n", "<leader>gd", ":Gvdiffsplit!<CR>" },
+  { "n", "<leader>gm", ":Git mergetool<CR>" },
+  { "n", "<leader>g<", ":diffget //2<CR>" },
+  { "n", "<leader>g>", ":diffget //3<CR>" },
   { "n", "<leader>gp", ":Git push " },
   { "n", "<leader>gl", ":Git pull " },
   { "n", "<leader>gc", fzf.git_commits },
