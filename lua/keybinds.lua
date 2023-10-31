@@ -19,6 +19,25 @@ local function autojump(cdFn)
   end
 end
 
+local function toggleList(prefix)
+  local flag = false
+  return function()
+    flag = not flag
+    if flag then
+      local ok, result = pcall(vim.cmd, prefix .. "open")
+      if not ok then
+        if prefix == "l" and result:match("No location list") then
+          print("No location list")
+        else
+          error(result)
+        end
+      end
+    else
+      vim.cmd(prefix .. "close")
+    end
+  end
+end
+
 vim.g.mapleader = " "
 local binds = {
   { "n", "<leader>u",  vim.cmd.UndotreeToggle },
@@ -47,6 +66,9 @@ local binds = {
   { "n", "<leader>vj", fzf.jumps },
   { "n", "<leader>vp", fzf.registers },
   { "n", "<leader>vk", fzf.keymaps },
+
+  { "n", "<leader>qq", toggleList("c") },
+  { "n", "<leader>ql", toggleList("l") },
 
   { "n", "<leader>ff", ":NvimTreeFindFile<CR>" },
   { "n", "<leader>fl", fzf.oldfiles },
