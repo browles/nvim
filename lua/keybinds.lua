@@ -30,7 +30,8 @@ local binds = {
   { "n", "<leader>gl", ":Git pull " },
   { "n", "<leader>gc", fzf.git_commits },
   { "n", "<leader>gb", fzf.git_branches },
-  { "n", "<leader>gs", fzf.git_stash },
+  { "n", "<leader>gs", fzf.git_status },
+  { "n", "<leader>gt", fzf.git_stash },
 
   { "n", "<leader>vv", ":vs | lcd ~/.config/nvim | e init.lua<CR>" },
   { "n", "<leader>vb", fzf.buffers },

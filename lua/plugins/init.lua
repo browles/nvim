@@ -27,7 +27,7 @@ return require("packer").startup(function(use)
   use("ThePrimeagen/harpoon")
   use("mbbill/undotree")
 
-  -- Editing/Keybinds
+  -- Git/Editing/Keybinds
   use("tpope/vim-fugitive")
   use("tpope/vim-rhubarb")
   use("tpope/vim-commentary")
