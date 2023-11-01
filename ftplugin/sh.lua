@@ -1,1 +1,1 @@
-vim.keymap.set("n", "<F5>", ":!bash %<CR>")
+vim.keymap.set("n", "<leader>rf", ":!bash %<CR>")

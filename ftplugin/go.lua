@@ -1,5 +1,5 @@
 local binds = {
-  { "n", "<F5>",       ":!go run %<CR>" },
+  { "n", "<leader>rf", ":!go run %<CR>" },
 
   { "n", "<leader>cr", ":GoGenReturn<CR>" },
   { "n", "<leader>ce", ":GoIfErr<CR>" },
@@ -12,9 +12,9 @@ local binds = {
   { "n", "<leader>ds", ":GoDbgStop<CR>" },
   { "n", "<leader>dk", ":GoDbgKeys<CR>" },
 
-  { "n", "<leader>rr", ":GoTestFunc<CR>" },
-  { "n", "<leader>rf", ":GoTestFile<CR>" },
-  { "n", "<leader>rp", ":GoTestPkg<CR>" },
+  { "n", "<leader>Tr", ":GoTestFunc<CR>" },
+  { "n", "<leader>Tf", ":GoTestFile<CR>" },
+  { "n", "<leader>Tp", ":GoTestPkg<CR>" },
 }
 
 for _, bind in pairs(binds) do
