@@ -135,11 +135,11 @@ local binds = {
   { { "c", "i" }, "<C-f>",      "<Right>" },
   { { "c", "i" }, "<C-d>",      "<Delete>" },
 
-  { "n",          "<C-w>h",     navigator.left },
-  { "n",          "<C-w>l",     navigator.right },
-  { "n",          "<C-w>k",     navigator.up },
-  { "n",          "<C-w>j",     navigator.down },
-  { "n",          "<C-\\>",     navigator.previous },
+  { { "n", "t" }, "<C-w>h",     navigator.left },
+  { { "n", "t" }, "<C-w>l",     navigator.right },
+  { { "n", "t" }, "<C-w>k",     navigator.up },
+  { { "n", "t" }, "<C-w>j",     navigator.down },
+  { { "n", "t" }, "<C-\\>",     navigator.previous },
 
   { "n",          "Y",          "y$" },
   { { "n", "v" }, "p",          "p" },
