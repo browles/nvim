@@ -97,8 +97,8 @@ local binds = {
   { "n",          "<leader>bb", ":enew<CR>" },
   { "n",          "<leader>bl", fzf.buffers },
   { "n",          "<leader>bd", ":bdelete<CR>" },
-  { "n",          "<C-j>",      ":bnext<CR>" },
-  { "n",          "<C-k>",      ":bprev<CR>" },
+  { "n",          "<C-h>",      ":bnext<CR>" },
+  { "n",          "<C-l>",      ":bprev<CR>" },
 
   { "n",          "<leader>pe", ":NvimTreeToggle<CR>" },
   { "n",          "<leader>pf", fzf.files },
@@ -119,8 +119,8 @@ local binds = {
   { "n",          "<leader>tt", ":tabnew<CR>" },
   { "n",          "<leader>td", ":tabclose<CR>" },
   { "n",          "<leader>to", ":tabonly<CR>" },
-  { "n",          "<C-h>",      ":tabprevious<CR>" },
-  { "n",          "<C-l>",      ":tabnext<CR>" },
+  { "n",          "<C-k>",      ":tabprevious<CR>" },
+  { "n",          "<C-j>",      ":tabnext<CR>" },
   { "n",          "<leader>tc", ":tcd " },
   { "n",          "<leader>tj", autojump("tcd") },
 
