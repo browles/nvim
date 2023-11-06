@@ -40,7 +40,7 @@ end
 
 vim.g.mapleader = " "
 local binds = {
-  { "n", "<leader>u",  vim.cmd.UndotreeToggle },
+  { "n", "<leader>u",  ":UndotreeToggle<CR>" },
 
   { "n", "<leader>gg", ":Git<CR>" },
   { "n", "<leader>ga", ":Git blame<CR>" },
@@ -51,27 +51,31 @@ local binds = {
   { "n", "<leader>g>", ":diffget //3<CR>" },
   { "n", "<leader>gp", ":Git push " },
   { "n", "<leader>gl", ":Git pull " },
-  { "n", "<leader>gc", fzf.git_commits },
-  { "n", "<leader>gb", fzf.git_branches },
-  { "n", "<leader>gs", fzf.git_status },
-  { "n", "<leader>gt", fzf.git_stash },
+  { "n", "<leader>gc", fzf.git_commits,      { desc = "fzf.git_commits" } },
+  { "n", "<leader>gb", fzf.git_branches,     { desc = "fzf.git_branches" } },
+  { "n", "<leader>gs", fzf.git_status,       { desc = "fzf.git_status" } },
+  { "n", "<leader>gt", fzf.git_stash, { desc = "fzf.git_stash" }
+  },
 
-  { "n", "<leader>vv", ":vs | lcd ~/.config/nvim | e init.lua<CR>" },
-  { "n", "<leader>vb", fzf.buffers },
-  { "n", "<leader>vf", fzf.oldfiles },
-  { "n", "<leader>vc", fzf.commands },
-  { "n", "<leader>vm", fzf.marks },
-  { "n", "<leader>vq", fzf.quickfix },
-  { "n", "<leader>vl", fzf.loclist },
-  { "n", "<leader>vj", fzf.jumps },
-  { "n", "<leader>vp", fzf.registers },
-  { "n", "<leader>vk", fzf.keymaps },
+  { "n", "<leader>vv", ":vs | lcd ~/.config/nvim | e init.lua<CR>"
+  },
+  { "n", "<leader>vb", fzf.buffers,   { desc = "fzf.buffers" } },
+  { "n", "<leader>vf", fzf.oldfiles,  { desc = "fzf.oldfiles" } },
+  { "n", "<leader>vc", fzf.commands,  { desc = "fzf.commands" } },
+  { "n", "<leader>vm", fzf.marks,     { desc = "fzf.marks" } },
+  { "n", "<leader>vq", fzf.quickfix,  { desc = "fzf.quickfix" } },
+  { "n", "<leader>vl", fzf.loclist,   { desc = "fzf.loclist" } },
+  { "n", "<leader>vj", fzf.jumps,     { desc = "fzf.jumps" } },
+  { "n", "<leader>vp", fzf.registers, { desc = "fzf.registers" } },
+  { "n", "<leader>vk", fzf.keymaps, { desc = "fzf.keymaps" }
+  },
 
-  { "n", "<leader>qq", toggleList("c") },
-  { "n", "<leader>ql", toggleList("l") },
+  { "n", "<leader>qq", toggleList("c"),        { desc = "toggleList('c')" } },
+  { "n", "<leader>ql", toggleList("l"), { desc = "toggleList('l')" }
+  },
 
   { "n", "<leader>ff", ":NvimTreeFindFile<CR>" },
-  { "n", "<leader>fl", fzf.oldfiles },
+  { "n", "<leader>fl", fzf.oldfiles,           { desc = "fzf.oldfiles" } },
   { "n", "<leader>fs", ":w<CR>" },
   { "n", "<leader>fr", function()
     vim.ui.input({ prompt = "Rename: " }, function(input)
@@ -79,7 +83,7 @@ local binds = {
         vim.cmd("Rename " .. input)
       end
     end)
-  end },
+  end, { desc = "Rename file" } },
   { "n", "<leader>fd", function()
     local name = vim.fn.expand("%")
     vim.ui.input({ prompt = "Delete " .. name .. " ?" }, function(input)
@@ -87,26 +91,27 @@ local binds = {
         vim.cmd("Delete!")
       end
     end)
-  end },
+  end, { desc = "Delete file" }
+  },
 
-  { "n",          "<leader>m",  harpoon.add_file },
-  { "n",          "<leader>h",  harpoon_ui.toggle_quick_menu },
-  { "n",          "<leader>j",  harpoon_ui.nav_next },
-  { "n",          "<leader>k",  harpoon_ui.nav_prev },
+  { "n", "<leader>m",  harpoon.add_file,             { desc = "harpoon.add_file" } },
+  { "n", "<leader>h",  harpoon_ui.toggle_quick_menu, { desc = "harpoon_ui.toggle_quick_menu" } },
+  { "n", "<leader>j",  harpoon_ui.nav_next,          { desc = "harpoon_ui.nav_next" } },
+  { "n", "<leader>k",  harpoon_ui.nav_prev,          { desc = "harpoon_ui.nav_prev" } },
+  { "n", "<leader>bb", ":enew<CR>" },
+  { "n", "<leader>bl", fzf.buffers,                  { desc = "fzf.buffers" } },
+  { "n", "<leader>bd", ":bdelete<CR>" },
+  { "n", "<C-h>",      ":bnext<CR>" },
+  { "n", "<C-l>",      ":bprev<CR>" },
 
-  { "n",          "<leader>bb", ":enew<CR>" },
-  { "n",          "<leader>bl", fzf.buffers },
-  { "n",          "<leader>bd", ":bdelete<CR>" },
-  { "n",          "<C-h>",      ":bnext<CR>" },
-  { "n",          "<C-l>",      ":bprev<CR>" },
-
-  { "n",          "<leader>pe", ":NvimTreeToggle<CR>" },
-  { "n",          "<leader>pf", fzf.files },
-  { "n",          "<leader>pi", fzf.git_files },
-  { "n",          "<leader>pg", fzf.live_grep },
-  { "n",          "<leader>pw", vim.cmd.pwd },
-  { "n",          "<leader>pc", ":cd " },
-  { "n",          "<leader>pj", autojump("cd") },
+  { "n", "<leader>pe", ":NvimTreeToggle<CR>" },
+  { "n", "<leader>pf", fzf.files,                    { desc = "fzf.files" } },
+  { "n", "<leader>pi", fzf.git_files,                { desc = "fzf.git_files" } },
+  { "n", "<leader>pg", fzf.live_grep,                { desc = "fzf.live_grep" } },
+  { "n", "<leader>pw", ":pwd<CR>" },
+  { "n", "<leader>pc", ":cd " },
+  { "n", "<leader>pj", autojump("cd"), { desc = "autojump('cd')" }
+  },
 
   { "n",          "<leader>ww", ":vsplit<CR>" },
   { "n",          "<leader>w/", ":vsplit<CR>" },
@@ -114,16 +119,14 @@ local binds = {
   { "n",          "<leader>wd", ":close<CR>" },
   { "n",          "<leader>wo", ":only<CR>" },
   { "n",          "<leader>wc", ":lcd " },
-  { "n",          "<leader>wi", autojump("lcd") },
-
+  { "n",          "<leader>wi", autojump("lcd"),                 { desc = "autojump('lcd')" } },
   { "n",          "<leader>tt", ":tabnew<CR>" },
   { "n",          "<leader>td", ":tabclose<CR>" },
   { "n",          "<leader>to", ":tabonly<CR>" },
   { "n",          "<C-k>",      ":tabprevious<CR>" },
   { "n",          "<C-j>",      ":tabnext<CR>" },
   { "n",          "<leader>tc", ":tcd " },
-  { "n",          "<leader>tj", autojump("tcd") },
-
+  { "n",          "<leader>tj", autojump("tcd"),                 { desc = "autojump('tcd')" } },
   { "n",          "<leader>rr", ":ToggleTerm<CR>" },
   { "n",          "<leader>ra", ":ToggleTermToggleAll<CR>" },
   { "n",          "<leader>re", ":ToggleTermSendCurrentLine<CR>" },
@@ -134,13 +137,11 @@ local binds = {
   { { "c", "i" }, "<C-b>",      "<Left>" },
   { { "c", "i" }, "<C-f>",      "<Right>" },
   { { "c", "i" }, "<C-d>",      "<Delete>" },
-
-  { { "n", "t" }, "<C-w>h",     navigator.left },
-  { { "n", "t" }, "<C-w>l",     navigator.right },
-  { { "n", "t" }, "<C-w>k",     navigator.up },
-  { { "n", "t" }, "<C-w>j",     navigator.down },
-  { { "n", "t" }, "<C-\\>",     navigator.previous },
-
+  { { "n", "t" }, "<C-w>h",     navigator.left,                  { desc = "navigator.left" } },
+  { { "n", "t" }, "<C-w>l",     navigator.right,                 { desc = "navigator.right" } },
+  { { "n", "t" }, "<C-w>k",     navigator.up,                    { desc = "navigator.up" } },
+  { { "n", "t" }, "<C-w>j",     navigator.down,                  { desc = "navigator.down" } },
+  { { "n", "t" }, "<C-\\>",     navigator.previous,              { desc = "navigator.previous" } },
   { "n",          "Y",          "y$" },
   { { "n", "v" }, "p",          "p" },
   { { "n", "v" }, "<C-p>",      "\"0p" },
@@ -169,5 +170,5 @@ local binds = {
 }
 
 for _, bind in ipairs(binds) do
-  vim.keymap.set(bind[1], bind[2], bind[3])
+  vim.keymap.set(unpack(bind))
 end

@@ -25,6 +25,8 @@ local options = {
   history = 1000,
   laststatus = 2,
   showmode = false,
+  timeout = true,
+  timeoutlen = 300,
 
   ignorecase = true,
   smartcase = true,
