@@ -2,6 +2,7 @@ local fzf = require("fzf-lua")
 local harpoon = require("harpoon.mark")
 local harpoon_ui = require("harpoon.ui")
 local navigator = require("Navigator")
+local dap = require("dap")
 
 local function autojump(cdFn)
   return function()
@@ -113,20 +114,31 @@ local binds = {
   { "n", "<leader>pj", autojump("cd"), { desc = "autojump('cd')" }
   },
 
-  { "n",          "<leader>ww", ":vsplit<CR>" },
-  { "n",          "<leader>w/", ":vsplit<CR>" },
-  { "n",          "<leader>w-", ":split<CR>" },
-  { "n",          "<leader>wd", ":close<CR>" },
-  { "n",          "<leader>wo", ":only<CR>" },
-  { "n",          "<leader>wc", ":lcd " },
-  { "n",          "<leader>wi", autojump("lcd"),                 { desc = "autojump('lcd')" } },
-  { "n",          "<leader>tt", ":tabnew<CR>" },
-  { "n",          "<leader>td", ":tabclose<CR>" },
-  { "n",          "<leader>to", ":tabonly<CR>" },
-  { "n",          "<C-k>",      ":tabprevious<CR>" },
-  { "n",          "<C-j>",      ":tabnext<CR>" },
-  { "n",          "<leader>tc", ":tcd " },
-  { "n",          "<leader>tj", autojump("tcd"),                 { desc = "autojump('tcd')" } },
+  { "n", "<leader>ww", ":vsplit<CR>" },
+  { "n", "<leader>w/", ":vsplit<CR>" },
+  { "n", "<leader>w-", ":split<CR>" },
+  { "n", "<leader>wd", ":close<CR>" },
+  { "n", "<leader>wo", ":only<CR>" },
+  { "n", "<leader>wc", ":lcd " },
+  { "n", "<leader>wi", autojump("lcd"),   { desc = "autojump('lcd')" } },
+  { "n", "<leader>tt", ":tabnew<CR>" },
+  { "n", "<leader>td", ":tabclose<CR>" },
+  { "n", "<leader>to", ":tabonly<CR>" },
+  { "n", "<C-k>",      ":tabprevious<CR>" },
+  { "n", "<C-j>",      ":tabnext<CR>" },
+  { "n", "<leader>tc", ":tcd " },
+  { "n", "<leader>tj", autojump("tcd"), { desc = "autojump('tcd')" }
+  },
+
+  { "n",          "<F5>",       dap.continue },
+  { "n",          "<F6>",       dap.step_over },
+  { "n",          "<F7>",       dap.step_into },
+  { "n",          "<F8>",       dap.step_out },
+  { "n",          "<leader>dd", dap.continue },
+  { "n",          "<leader>db", dap.toggle_breakpoint },
+  { "n",          "<leader>dr", dap.repl.open },
+  { "n",          "<leader>dl", dap.run_last },
+
   { "n",          "<leader>rr", ":ToggleTerm<CR>" },
   { "n",          "<leader>ra", ":ToggleTermToggleAll<CR>" },
   { "n",          "<leader>re", ":ToggleTermSendCurrentLine<CR>" },

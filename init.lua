@@ -5,7 +5,6 @@ require("plugins.treesitter")
 require("plugins.devicons")
 require("plugins.gitsigns")
 require("plugins.monokai")
-require("plugins.go")
 require("keybinds")
 
 -- Disable netrw before loading nvim-tree

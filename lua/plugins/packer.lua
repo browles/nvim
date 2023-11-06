@@ -62,17 +62,17 @@ return require("packer").startup(function(use)
 
   -- Dev
   use({
-    "ray-x/go.nvim",
-    requires = {
-      "ray-x/guihua.lua"
-    }
-  })
-  use({
     "mfussenegger/nvim-dap",
     requires = {
       { "theHamsta/nvim-dap-virtual-text" },
       { "rcarriga/nvim-dap-ui" },
     }
+  })
+  use({
+    "leoluz/nvim-dap-go",
+    config = function()
+      require("dap-go").setup({})
+    end
   })
   use({
     "VonHeikemen/lsp-zero.nvim",
