@@ -61,6 +61,7 @@ return require("packer").startup(function(use)
   })
 
   -- Dev
+  use("olexsmir/gopher.nvim")
   use({
     "mfussenegger/nvim-dap",
     requires = {

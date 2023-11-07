@@ -39,6 +39,11 @@ local lspconfig = require("lspconfig")
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
+      format = {
+        defaultConfig = {
+          align_array_table = "false",
+        }
+      },
       workspace = {
         checkThirdParty = false,
       },
