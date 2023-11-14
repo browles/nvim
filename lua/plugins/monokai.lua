@@ -98,3 +98,5 @@ require("lualine").setup({
 vim.api.nvim_set_hl(0, "@symbol", { fg = colors.base.magenta })
 vim.api.nvim_set_hl(0, "@keyword", { fg = colors.base.red })
 vim.api.nvim_set_hl(0, "@type", { fg = colors.base.cyan })
+vim.api.nvim_set_hl(0, "Typedef", { fg = colors.base.cyan })
+vim.api.nvim_set_hl(0, "@field", { fg = colors.base.white })
