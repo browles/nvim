@@ -1,17 +1,18 @@
+-- Disable netrw immediately
+-- :help nvim-tree-netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 require("plugins.packer")
 require("plugins.lsp")
 require("plugins.cmp")
 require("plugins.dap")
 require("plugins.treesitter")
+require("plugins.nvim_tree")
 require("plugins.devicons")
 require("plugins.gitsigns")
 require("plugins.monokai")
 require("keybinds")
-
--- Disable netrw before loading nvim-tree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-require("nvim-tree").setup()
 
 local options = {
   termguicolors = true,
