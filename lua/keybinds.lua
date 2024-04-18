@@ -115,7 +115,7 @@ local binds = {
   { "n", "<leader>wd", ":close<CR>" },
   { "n", "<leader>wo", ":only<CR>" },
   { "n", "<leader>wc", ":lcd " },
-  { "n", "<leader>wi", autojump("lcd"), { desc = "autojump('lcd')" } },
+  { "n", "<leader>wj", autojump("lcd"), { desc = "autojump('lcd')" } },
   { "n", "<leader>tt", ":tabnew<CR>" },
   { "n", "<leader>td", ":tabclose<CR>" },
   { "n", "<leader>to", ":tabonly<CR>" },
