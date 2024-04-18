@@ -26,7 +26,7 @@ vim.cmd([[colorscheme monokai-pro]])
 -- dimmed1 #c1c0c0
 -- white #fcfcfa
 
-local colors = require("monokai-pro.colorscheme").colors
+local colors = require("monokai-pro.colorscheme").get("pro")
 local lualine_theme = {
   normal = {
     a = { bg = colors.base.green, fg = colors.base.black, gui = "bold" },
