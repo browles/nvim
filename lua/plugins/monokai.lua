@@ -7,10 +7,16 @@ require("monokai-pro").setup({
   background_clear = {
     "telescope",
   },
+  overridePalette = function(_)
+    return {
+      accent3 = "#e6db74",
+    }
+  end,
 })
 vim.cmd([[colorscheme monokai-pro]])
 -- vim.cmd([[TransparentEnable]])
 
+-- Original palette
 -- green #a9dc76
 -- dark #19181a
 -- red #ff6188
