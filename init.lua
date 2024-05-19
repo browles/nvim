@@ -66,6 +66,7 @@ local options = {
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+vim.g.markdown_recommended_style = 0
 
 vim.api.nvim_create_autocmd("BufEnter", {
   desc = "Remove 'o' from formatoptions.",

@@ -3,7 +3,7 @@ local lint = require("lint")
 lint.linters_by_ft = {
   systemd = { "systemdlint", },
   text = { "vale", },
-  markdown = { "vale", "markdownlint", },
+  markdown = { "markdownlint", },
   yaml = { "yamllint", },
 }
 
