@@ -124,6 +124,12 @@ local binds = {
   { "n", "<leader>tc", ":tcd " },
   { "n", "<leader>tj", autojump("tcd"), { desc = "autojump('tcd')" } },
   --
+  { "n", "<leader>ll", ":LspInfo<CR>" },
+  { "n", "<leader>li", ":LspInstall<CR>" },
+  { "n", "<leader>ls", ":LspStart<CR>" },
+  { "n", "<leader>ld", ":LspStop<CR>" },
+  { "n", "<leader>lr", ":LspRestart<CR>" },
+  --
   { "n", "<F5>", dap.continue, { desc = "dap.continue" } },
   { "n", "<F6>", dap.step_over, { desc = "dap.step_over" } },
   { "n", "<F7>", dap.step_into, { desc = "dap.step_into" } },
