@@ -26,32 +26,14 @@ require("mason-lspconfig").setup({
     "bashls",
     "eslint",
     "gopls",
+    "pylsp",
     "tsserver",
     -- Manually install these
     -- "clangd",
     -- "lua_ls",
-    -- "pylsp",
   },
   handlers = {
-    function(server_name)
-      lspconfig[server_name].setup({})
-    end,
-    lua_ls = function()
-      lspconfig["lua_ls"].setup({
-        settings = {
-          Lua = {
-            format = {
-              defaultConfig = {
-                align_array_table = "false",
-              }
-            },
-            workspace = {
-              checkThirdParty = false,
-            },
-          },
-        },
-      })
-    end,
+    lsp.default_setup,
     bashls = function()
       lspconfig["bashls"].setup({
         filetypes = { "sh", "zsh" }
@@ -73,6 +55,22 @@ require("mason-lspconfig").setup({
     end,
   },
 })
+lspconfig["clangd"].setup({})
+lspconfig["lua_ls"].setup({
+  settings = {
+    Lua = {
+      format = {
+        defaultConfig = {
+          align_array_table = "false",
+        }
+      },
+      workspace = {
+        checkThirdParty = false,
+      },
+    },
+  },
+})
+
 -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
