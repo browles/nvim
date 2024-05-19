@@ -7,8 +7,8 @@ require("nvim-web-devicons").setup({
       icon = "",
       color = "#428850",
       cterm_color = "65",
-      name = "Zsh"
-    }
+      name = "Zsh",
+    },
   },
   -- globally enable different highlight colors per icon (default to true)
   -- if set to false all icons will have the default icon's color
@@ -27,8 +27,8 @@ require("nvim-web-devicons").setup({
     [".gitignore"] = {
       icon = "",
       color = "#f1502f",
-      name = "Gitignore"
-    }
+      name = "Gitignore",
+    },
   },
   -- same as `override` but specifically for overrides by extension
   -- takes effect when `strict` is true
@@ -36,7 +36,7 @@ require("nvim-web-devicons").setup({
     ["log"] = {
       icon = "",
       color = "#81e043",
-      name = "Log"
-    }
+      name = "Log",
+    },
   },
 })

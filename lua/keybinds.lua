@@ -12,7 +12,7 @@ local function autojump(cdFn)
       end
       local dir = vim.fn.system("autojump " .. input)
       dir = dir:gsub("\n", "")
-      if dir ~= '.' then
+      if dir ~= "." then
         vim.cmd(cdFn .. " " .. dir)
         vim.cmd.pwd()
       end
@@ -74,21 +74,31 @@ local binds = {
   { "n", "<leader>ff", ":NvimTreeFindFile<CR>" },
   { "n", "<leader>fl", fzf.oldfiles, { desc = "fzf.oldfiles" } },
   { "n", "<leader>fs", ":w<CR>" },
-  { "n", "<leader>fr", function()
-    vim.ui.input({ prompt = "Rename: " }, function(input)
-      if input ~= nil then
-        vim.cmd("Rename " .. input)
-      end
-    end)
-  end, { desc = "Rename file" } },
-  { "n", "<leader>fd", function()
-    local name = vim.fn.expand("%")
-    vim.ui.input({ prompt = "Delete " .. name .. " ?" }, function(input)
-      if input ~= nil then
-        vim.cmd("Delete!")
-      end
-    end)
-  end, { desc = "Delete file" } },
+  {
+    "n",
+    "<leader>fr",
+    function()
+      vim.ui.input({ prompt = "Rename: " }, function(input)
+        if input ~= nil then
+          vim.cmd("Rename " .. input)
+        end
+      end)
+    end,
+    { desc = "Rename file" },
+  },
+  {
+    "n",
+    "<leader>fd",
+    function()
+      local name = vim.fn.expand("%")
+      vim.ui.input({ prompt = "Delete " .. name .. " ?" }, function(input)
+        if input ~= nil then
+          vim.cmd("Delete!")
+        end
+      end)
+    end,
+    { desc = "Delete file" },
+  },
   --
   { "n", "<leader>m", harpoon.add_file, { desc = "harpoon.add_file" } },
   { "n", "<leader>h", harpoon_ui.toggle_quick_menu, { desc = "harpoon_ui.toggle_quick_menu" } },
@@ -102,6 +112,7 @@ local binds = {
   { "n", "<C-h>", ":bprev<CR>" },
   --
   { "n", "<leader>pe", ":NvimTreeToggle<CR>" },
+  { "n", "<leader>pt", ":NvimTreeFocus<CR>" },
   { "n", "<leader>pf", fzf.files, { desc = "fzf.files" } },
   { "n", "<leader>pi", fzf.git_files, { desc = "fzf.git_files" } },
   { "n", "<leader>pg", fzf.live_grep, { desc = "fzf.live_grep" } },
@@ -158,7 +169,7 @@ local binds = {
   { { "n", "t" }, "<C-\\>", navigator.previous, { desc = "navigator.previous" } },
   { "n", "Y", "y$" },
   { { "n", "v" }, "p", "p" },
-  { { "n", "v" }, "<C-p>", "\"0p" },
+  { { "n", "v" }, "<C-p>", '"0p' },
   { "n", "<C-n>", "" },
   { "n", "<C-/>", ":nohlsearch<CR>" },
   { "n", "[q", ":cprevious<CR>" },
@@ -169,14 +180,18 @@ local binds = {
   { "n", "N", "Nzz" },
   { "n", "<C-u>", "<C-u>zz" },
   { "n", "<C-d>", "<C-d>zz" },
-  { "n", "<C-c>", function()
-    local cc = vim.api.nvim_get_option_value("colorcolumn", {})
-    if cc == "" then
-      vim.opt.colorcolumn = "+0"
-    else
-      vim.opt.colorcolumn = ""
-    end
-  end },
+  {
+    "n",
+    "<C-c>",
+    function()
+      local cc = vim.api.nvim_get_option_value("colorcolumn", {})
+      if cc == "" then
+        vim.opt.colorcolumn = "+0"
+      else
+        vim.opt.colorcolumn = ""
+      end
+    end,
+  },
   { "n", "<C-t>", ":TransparentToggle<CR>" },
   --
   { "n", "<F9>", ":Inspect<CR>" },

@@ -27,17 +27,17 @@ return require("packer").startup(function(use)
   use("mbbill/undotree")
   use({
     "akinsho/toggleterm.nvim",
-    tag = '*',
+    tag = "*",
     config = function()
       require("toggleterm").setup()
-    end
+    end,
   })
   use("tpope/vim-fugitive")
   use({
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup({})
-    end
+    end,
   })
 
   -- Editing/Keybinds
@@ -51,8 +51,7 @@ return require("packer").startup(function(use)
     config = function()
       require("Navigator").setup({})
     end,
-  }
-  )
+  })
   use({
     "windwp/nvim-autopairs",
     config = function()
@@ -68,13 +67,13 @@ return require("packer").startup(function(use)
       { "theHamsta/nvim-dap-virtual-text" },
       { "nvim-neotest/nvim-nio" },
       { "rcarriga/nvim-dap-ui" },
-    }
+    },
   })
   use({
     "leoluz/nvim-dap-go",
     config = function()
       require("dap-go").setup({})
-    end
+    end,
   })
   use({
     "VonHeikemen/lsp-zero.nvim",

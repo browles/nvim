@@ -80,25 +80,25 @@ require("lualine").setup({
   },
   options = {
     theme = lualine_theme,
-    section_separators = { left = '', right = '' },
-    component_separators = { left = '|', right = '|' }
+    section_separators = { left = "", right = "" },
+    component_separators = { left = "|", right = "|" },
   },
   sections = {
     lualine_c = {
       {
         "filename",
-        path = 1
-      }
-    }
+        path = 1,
+      },
+    },
   },
   inactive_sections = {
     lualine_c = {
       {
         "filename",
-        path = 1
-      }
-    }
-  }
+        path = 1,
+      },
+    },
+  },
 })
 
 vim.api.nvim_set_hl(0, "@symbol", { fg = colors.base.magenta })

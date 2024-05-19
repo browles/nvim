@@ -71,9 +71,8 @@ vim.g.markdown_recommended_style = 0
 vim.api.nvim_create_autocmd("BufEnter", {
   desc = "Remove 'o' from formatoptions.",
   pattern = "*",
-  command = "set formatoptions-=o"
+  command = "set formatoptions-=o",
 })
-
 
 vim.api.nvim_create_autocmd("VimResized", {
   desc = "Automatically resize windows when the host window size changes.",
