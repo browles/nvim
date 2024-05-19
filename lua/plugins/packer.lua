@@ -90,4 +90,6 @@ return require("packer").startup(function(use)
       { "L3MON4D3/LuaSnip" },
     },
   })
+  use("mfussenegger/nvim-lint")
+  use("stevearc/conform.nvim")
 end)

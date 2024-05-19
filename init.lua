@@ -5,6 +5,8 @@ vim.g.loaded_netrwPlugin = 1
 
 require("plugins.packer")
 require("plugins.lsp")
+require("plugins.lint")
+require("plugins.conform")
 require("plugins.cmp")
 require("plugins.dap")
 require("plugins.treesitter")
@@ -65,25 +67,12 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
+vim.api.nvim_create_autocmd("BufEnter", {
   desc = "Remove 'o' from formatoptions.",
   pattern = "*",
   command = "set formatoptions-=o"
 })
 
-vim.api.nvim_create_autocmd({ "BufWrite" }, {
-  desc = "Remove trailing whitespace and newlines.",
-  pattern = "*",
-  callback = function()
-    local view = vim.fn.winsaveview()
-    local endofline = [[%s/\s\+$//]]
-    local endoffile = [[%s/\($\n\s*\)\+\%$//]]
-    for _, pattern in ipairs({ endofline, endoffile }) do
-      vim.cmd("keepjumps keeppatterns silent! " .. pattern)
-    end
-    vim.fn.winrestview(view)
-  end
-})
 
 vim.api.nvim_create_autocmd("VimResized", {
   desc = "Automatically resize windows when the host window size changes.",

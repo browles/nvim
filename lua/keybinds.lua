@@ -125,6 +125,7 @@ local binds = {
   { "n", "<leader>tj", autojump("tcd"), { desc = "autojump('tcd')" } },
   --
   { "n", "<leader>ll", ":LspInfo<CR>" },
+  { "n", "<leader>lm", ":Mason<CR>" },
   { "n", "<leader>li", ":LspInstall<CR>" },
   { "n", "<leader>ls", ":LspStart<CR>" },
   { "n", "<leader>ld", ":LspStop<CR>" },
