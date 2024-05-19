@@ -9,6 +9,7 @@ lsp.on_attach(function(client, bufnr)
   client.server_capabilities.semanticTokensProvider = nil
 end)
 
+local lspconfig = require("lspconfig")
 require("mason").setup({})
 require("mason-lspconfig").setup({
   ensure_installed = {
@@ -23,46 +24,53 @@ require("mason-lspconfig").setup({
     "dockerls",
     -- Languages
     "bashls",
-    "clangd",
     "eslint",
     "gopls",
-    "lua_ls",
-    "pylsp",
     "tsserver",
+    -- Manually install these
+    -- "clangd",
+    -- "lua_ls",
+    -- "pylsp",
   },
   handlers = {
-    lsp.default_setup,
-  },
-})
-
-local lspconfig = require("lspconfig")
-lspconfig.lua_ls.setup({
-  settings = {
-    Lua = {
-      format = {
-        defaultConfig = {
-          align_array_table = "false",
-        }
-      },
-      workspace = {
-        checkThirdParty = false,
-      },
-    },
-  },
-})
-lspconfig.bashls.setup({
-  filetypes = { "sh", "zsh" }
-})
-lspconfig.gopls.setup({
-  settings = {
-    gopls = {
-      completeUnimported = true,
-      analyses = {
-        unusedparams = true,
-      },
-      staticcheck = true,
-      gofumpt = true,
-    },
+    function(server_name)
+      lspconfig[server_name].setup({})
+    end,
+    lua_ls = function()
+      lspconfig["lua_ls"].setup({
+        settings = {
+          Lua = {
+            format = {
+              defaultConfig = {
+                align_array_table = "false",
+              }
+            },
+            workspace = {
+              checkThirdParty = false,
+            },
+          },
+        },
+      })
+    end,
+    bashls = function()
+      lspconfig["bashls"].setup({
+        filetypes = { "sh", "zsh" }
+      })
+    end,
+    gopls = function()
+      lspconfig["gopls"].setup({
+        settings = {
+          gopls = {
+            completeUnimported = true,
+            analyses = {
+              unusedparams = true,
+            },
+            staticcheck = true,
+            gofumpt = true,
+          },
+        },
+      })
+    end,
   },
 })
 -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md
