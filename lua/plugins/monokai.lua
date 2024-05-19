@@ -4,9 +4,6 @@ require("colorizer").setup({ "lua" })
 require("monokai-pro").setup({
   filter = "pro",
   devicons = true,
-  background_clear = {
-    "telescope",
-  },
   overridePalette = function(_)
     return {
       accent3 = "#e6db74",
