@@ -60,7 +60,13 @@ return require("packer").startup(function(use)
   })
 
   -- Dev
-  use("olexsmir/gopher.nvim")
+  use("fatih/vim-go")
+  use({
+    "yanskun/gotests.nvim",
+    config = function()
+      require("gotests").setup()
+    end,
+  })
   use({
     "mfussenegger/nvim-dap",
     requires = {
