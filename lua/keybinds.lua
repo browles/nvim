@@ -110,8 +110,8 @@ local binds = {
   { "n", "<leader>bb", ":enew<CR>" },
   { "n", "<leader>bl", fzf.buffers, { desc = "fzf.buffers" } },
   { "n", "<leader>bd", ":bdelete<CR>" },
-  { "n", "<C-h>", ":bnext<CR>" },
-  { "n", "<C-l>", ":bprev<CR>" },
+  { "n", "<C-l>", ":bnext<CR>" },
+  { "n", "<C-h>", ":bprev<CR>" },
   --
   { "n", "<leader>pe", ":NvimTreeToggle<CR>" },
   { "n", "<leader>pt", ":NvimTreeFocus<CR>" },
@@ -132,8 +132,8 @@ local binds = {
   { "n", "<leader>tt", ":tabnew<CR>" },
   { "n", "<leader>td", ":tabclose<CR>" },
   { "n", "<leader>to", ":tabonly<CR>" },
-  { "n", "<C-k>", ":tabprevious<CR>" },
-  { "n", "<C-j>", ":tabnext<CR>" },
+  { "n", "<C-j>", ":tabprevious<CR>" },
+  { "n", "<C-k>", ":tabnext<CR>" },
   { "n", "<leader>tc", ":tcd " },
   { "n", "<leader>tj", autojump("tcd"), { desc = "autojump('tcd')" } },
   --
