@@ -5,6 +5,8 @@ local binds = {
   { "n", "<leader>rt", ":GoTestFile<CR>" },
   { "n", "<leader>rT", ":GoTest<CR>" },
   { "n", "<leader>rf", ":GoTestFunc<CR>" },
+  { "n", "<leader>rc", ":GoCoverage<CR>" },
+  { "n", "<leader>rC", ":GoCoverageClear<CR>" },
 
   { "n", "<leader>ce", ":GoIfErr<CR>" },
   { "n", "<leader>cf", ":GoFillStruct<CR>" },
