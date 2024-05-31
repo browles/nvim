@@ -3,7 +3,7 @@ local lsp = require("lsp-zero")
 
 lsp.on_attach(function(client, bufnr)
   -- :help lsp-zero-keybindings
-  lsp.default_keymaps({ buffer = bufnr })
+  lsp.default_keymaps({ buffer = bufnr, preserve_mappings = false })
   -- Disable all semantic tokens for now
   client.server_capabilities.semanticTokensProvider = nil
 end)

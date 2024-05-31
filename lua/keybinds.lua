@@ -110,8 +110,8 @@ local binds = {
   { "n", "<leader>bb", ":enew<CR>" },
   { "n", "<leader>bl", fzf.buffers, { desc = "fzf.buffers" } },
   { "n", "<leader>bd", ":bdelete<CR>" },
-  { "n", "<C-l>", ":bnext<CR>" },
-  { "n", "<C-h>", ":bprev<CR>" },
+  { "n", "<C-h>", ":bnext<CR>" },
+  { "n", "<C-l>", ":bprev<CR>" },
   --
   { "n", "<leader>pe", ":NvimTreeToggle<CR>" },
   { "n", "<leader>pt", ":NvimTreeFocus<CR>" },
@@ -149,10 +149,11 @@ local binds = {
   { "n", "<F7>", dap.step_into, { desc = "dap.step_into" } },
   { "n", "<F8>", dap.step_out, { desc = "dap.step_out" } },
   { "n", "<leader>dd", dap.continue, { desc = "dap.continue" } },
+  { "n", "<leader>dD", dap.run_last, { desc = "dap.run_last" } },
   { "n", "<leader>dq", dap.terminate, { desc = "dap.terminate" } },
   { "n", "<leader>db", dap.toggle_breakpoint, { desc = "dap.toggle_breakpoint" } },
   { "n", "<leader>dr", dap.repl.open, { desc = "dap.repl.open" } },
-  { "n", "<leader>dl", dap.run_last, { desc = "dap.run_last" } },
+  { "n", "<leader>dl", ":DapShowLog<CR>" },
   --
   { "n", "<leader>rr", ":ToggleTerm<CR>" },
   { "n", "<leader>ra", ":ToggleTermToggleAll<CR>" },
