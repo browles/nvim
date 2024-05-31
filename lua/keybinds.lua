@@ -155,9 +155,9 @@ local binds = {
   { "n", "<leader>dr", dap.repl.open, { desc = "dap.repl.open" } },
   { "n", "<leader>dl", ":DapShowLog<CR>" },
   --
-  { "n", "<leader>rr", ":ToggleTerm<CR>" },
-  { "n", "<leader>ra", ":ToggleTermToggleAll<CR>" },
-  { "n", "<leader>re", ":ToggleTermSendCurrentLine<CR>" },
+  { "n", "<leader>\\\\", ":ToggleTerm<CR>" },
+  { "n", "<leader>\\a", ":ToggleTermToggleAll<CR>" },
+  { "n", "<leader>\\e", ":ToggleTermSendCurrentLine<CR>" },
   { "t", "<Esc>", "<C-\\><C-n>" },
   --
   { "c", "<C-a>", "<Home>" },

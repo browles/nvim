@@ -1,1 +1,1 @@
-vim.keymap.set("n", "<leader>rf", ":!python %<CR>")
+vim.keymap.set("n", "<leader>rr", ":!python %<CR>")
