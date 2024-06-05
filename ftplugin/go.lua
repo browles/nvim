@@ -15,6 +15,8 @@ local binds = {
   { "n", "<leader>cg", ":GoAddTags " },
   { "n", "<leader>ci", ":GoImpl " },
   { "n", "<leader>cx", ":GoExtract<CR>" },
+  { "n", "<leader>cj", 'j0w"jdwc0<BS>; <ESC>0"jp<CR>' },
+  { "n", "<leader>cE", "<leader>ce4k<leader>cj", { remap = true } },
 
   { "n", "<leader>dt", dap_go.debug_test, { desc = "dap.run_test" } },
   { "n", "<leader>dT", dap_go.debug_last_test, { desc = "dap.run_last_test" } },
