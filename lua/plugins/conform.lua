@@ -23,7 +23,11 @@ conform.setup({
       "trim_newlines",
     },
   },
-  format_after_save = {
-    lsp_fallback = true,
-  },
+  format_on_save = function(bufnr)
+    local ignore = { "gitcommit" }
+    if vim.tbl_contains(ignore, vim.bo[bufnr].filetype) then
+      return nil
+    end
+    return { lsp_fallback = true }
+  end,
 })
