@@ -6,5 +6,9 @@ require("nvim-tree").setup({
       enable = true,
       ignore_list = { "git", "gitcommit", "gitrebase" },
     },
+    exclude = function(event)
+      local ignore = { "git", "gitcommit", "gitrebase" }
+      return vim.tbl_contains(ignore, vim.bo[event.buf].filetype)
+    end,
   },
 })
