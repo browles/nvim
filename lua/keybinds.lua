@@ -116,6 +116,7 @@ local binds = {
   { "n", "<leader>pe", ":NvimTreeToggle<CR>" },
   { "n", "<leader>pt", ":NvimTreeFocus<CR>" },
   { "n", "<leader>pf", fzf.files, { desc = "fzf.files" } },
+  { "n", "<leader>pF", ":NvimTreeFindFile!<CR>" },
   { "n", "<leader>pi", fzf.git_files, { desc = "fzf.git_files" } },
   { "n", "<leader>pg", fzf.live_grep, { desc = "fzf.live_grep" } },
   { "n", "<leader>pw", ":pwd<CR>" },
