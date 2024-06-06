@@ -24,7 +24,7 @@ conform.setup({
     },
   },
   format_on_save = function(bufnr)
-    local ignore = { "gitcommit" }
+    local ignore = { "git", "gitcommit", "gitrebase" }
     if vim.tbl_contains(ignore, vim.bo[bufnr].filetype) then
       return nil
     end

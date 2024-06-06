@@ -4,7 +4,7 @@ require("nvim-tree").setup({
     enable = true,
     update_root = {
       enable = true,
-      ignore_list = { "gitcommit" },
+      ignore_list = { "git", "gitcommit", "gitrebase" },
     },
   },
 })
