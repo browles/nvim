@@ -39,6 +39,7 @@ return require("packer").startup(function(use)
       require("which-key").setup({})
     end,
   })
+  use("rcarriga/nvim-notify")
 
   -- Editing/Keybinds
   use("tpope/vim-rhubarb")
@@ -58,6 +59,7 @@ return require("packer").startup(function(use)
       require("nvim-autopairs").setup({})
     end,
   })
+  use("folke/flash.nvim")
 
   -- Dev
   use("fatih/vim-go")
@@ -97,4 +99,10 @@ return require("packer").startup(function(use)
   })
   use("mfussenegger/nvim-lint")
   use("stevearc/conform.nvim")
+  use({
+    "folke/trouble.nvim",
+    config = function()
+      require("trouble").setup({})
+    end,
+  })
 end)

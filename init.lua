@@ -15,6 +15,7 @@ require("plugins.nvim_tree")
 require("plugins.devicons")
 require("plugins.gitsigns")
 require("plugins.monokai")
+require("plugins.notify")
 require("keybinds")
 
 local options = {

@@ -3,6 +3,7 @@ local harpoon = require("harpoon.mark")
 local harpoon_ui = require("harpoon.ui")
 local navigator = require("Navigator")
 local dap = require("dap")
+local flash = require("flash")
 
 local function autojump(cdFn)
   return function()
@@ -140,9 +141,10 @@ local binds = {
   --
   { "n", "<leader>ll", ":LspInfo<CR>" },
   { "n", "<leader>lm", ":Mason<CR>" },
+  { "n", "<leader>ld", ":Trouble diagnostics toggle<CR>" },
   { "n", "<leader>li", ":LspInstall<CR>" },
   { "n", "<leader>ls", ":LspStart<CR>" },
-  { "n", "<leader>ld", ":LspStop<CR>" },
+  { "n", "<leader>lS", ":LspStop<CR>" },
   { "n", "<leader>lr", ":LspRestart<CR>" },
   --
   { "n", "<F5>", dap.continue, { desc = "dap.continue" } },
@@ -180,6 +182,11 @@ local binds = {
   { "n", "]q", ":cnext<CR>" },
   { "n", "]l", ":lnext<CR>" },
   { "n", "[l", ":lprevious<CR>" },
+  { { "n", "x", "o" }, "s", flash.jump, { desc = "flash.jump" } },
+  { { "n", "x", "o" }, "S", flash.treesitter, { desc = "flash.treesitter" } },
+  { "o", "r", flash.remote, { desc = "flash.remote" } },
+  { { "o", "x" }, "R", flash.treesitter_search, { desc = "flash.treesitter_search" } },
+  { { "c" }, "<c-s>", flash.toggle, { desc = "flash.toggle" } },
   { "n", "n", "nzz" },
   { "n", "N", "Nzz" },
   { "n", "<C-u>", "<C-u>zz" },
