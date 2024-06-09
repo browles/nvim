@@ -205,3 +205,17 @@ local binds = {
 for _, bind in ipairs(binds) do
   vim.keymap.set(unpack(bind))
 end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "checkhealth",
+    "fugitive*",
+    "help",
+    "git",
+    "notify",
+    "qf",
+  },
+  callback = function()
+    vim.keymap.set("n", "q", vim.cmd.close, { desc = "Close the current buffer", buffer = true })
+  end,
+})
