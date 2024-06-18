@@ -15,7 +15,7 @@ local binds = {
   { "n", "<leader>cg", ":GoAddTags " },
   { "n", "<leader>ci", ":GoImpl " },
   { "n", "<leader>cx", ":GoExtract<CR>" },
-  { "n", "<leader>cj", 'j0w"jdwc0<BS>; <ESC>0"jp<CR>', { desc = "Join iferr" } },
+  { "n", "<leader>cj", 'j0w"jdwc0<BS>; <ESC>^"jP<CR>', { desc = "Join iferr" } },
   { "n", "<leader>cE", "<leader>ce4k<leader>cj", { remap = true, desc = "Inline iferr" } },
 
   { "n", "<leader>dt", dap_go.debug_test, { desc = "dap.run_test" } },
